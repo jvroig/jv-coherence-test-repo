@@ -1,0 +1,20 @@
+backend:
+  type: backend
+  index_file_name: index.html
+  url_path: /
+  repo_path: backend
+  migration: ["migrate_db.sh"]
+
+  dev: ["python3 manage.py runserver 0.0.0.0:$PORT"]
+  prod: ["python3 manage.py runserver 0.0.0.0:$PORT"]
+
+  system:
+    dev:
+      port: 8080
+
+  resources:
+  - name: db1
+    engine: postgres
+    version: 13
+    type: database
+
